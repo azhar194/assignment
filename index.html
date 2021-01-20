@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment</title>
+
+
+</head>
+
+<body>
+    <h1 style="text-align: center;">Assignment</h1>
+    <hr>
+    <h2>Chapter 1 - 7 -> Console</h2>
+    <h2>Chapter 9</h2>
+    <p>First Name:
+        <input type="text" name="" id="f-name" placeholder="First Name..">
+        Last Name:
+        <input type="text" name="" id="l-name" placeholder="Last Name.."><br>
+        Age:
+        <input type="number" name="" id="age" placeholder="Enter your Age in digit..">
+        Print Alert Box:
+        <input type="button" value="Alert" id="btn-alert" onclick="pfunction()">
+    </p>
+    <h2>Chapter 10 - 14</h2>
+    <p>
+        Number1:
+        <input type="number" id="num1" placeholder="Enter First Number Here...">
+        Number2:
+        <input type="number" id="num2" placeholder="Enter second Number here..."><br>
+        Perform Operation:
+        <input type="button" value="+" id="add" onclick="addition()">
+        <input type="button" value="-" id="sub" onclick="sub()">
+        <input type="button" value="*" id="multi" onclick="multiply()">
+        <input type="button" value="/" id="division" onclick="division()">
+        <input type="button" value="%" id="mod" onclick="mod()"><br>
+        <input type="text" value="result" id="answer">
+    </p>
+    <script>
+        console.log("Chapter 1, 2, 3");
+        var f_name = "Muhammad";
+        var l_name = "Azhar";
+        var age = 25;
+        //alert("Hello " + f_name + " " + l_name + ", You are " + age + " years old")
+        console.log("Hello " + f_name + " " + l_name + ", You are " + age + " years old");
+        console.log("Chapter 5, 6, 7");
+        var a = 5;
+        var b = a++ + ++a - --a + a--;
+        var c = a++ + ++a;
+        var d = --a - --b;
+        console.log("a = " + a + "\nb = " + b + "\nc = " + c + "\nd = " + d);
+        /*alert("a = "+ a);
+        alert("b = "+ b);
+        alert("c = "+c);*/
+        //console.log("message: "+res);
+        function pfunction() {
+            var f_name = document.getElementById("f-name").value;
+            var l_name = document.getElementById("l-name").value;
+            var age = document.getElementById("age").value;
+            alert("Hello " + f_name + " " + l_name + ", You are " + age + " years old");
+        }
+        var res = 0;
+        function addition() {
+            //res = num1 + num2;
+            var x = document.getElementById("num1").value;
+            var y = document.getElementById("num2").value;
+            res = Number(x) + Number(y);
+            document.getElementById("answer").value = x + ' + ' + y + ' = ' + res;
+        }
+        function sub() {
+            var x = document.getElementById("num1").value;
+            var y = document.getElementById("num2").value;
+            res = Number(x) - Number(y);
+            document.getElementById("answer").value = x + ' - ' + y + ' = ' + res;
+        }
+        function multiply() {
+            var x = document.getElementById("num1").value;
+            var y = document.getElementById("num2").value;
+            res = Number(x) * Number(y);
+            document.getElementById("answer").value = x + ' * ' + y + ' = ' + res;
+        }
+        function division() {
+            var x = document.getElementById("num1").value;
+            var y = document.getElementById("num2").value;
+            res = Number(x) / Number(y);
+            document.getElementById("answer").value = x + ' / ' + y + ' = ' + res;
+        }
+        function mod() {
+            var x = document.getElementById("num1").value;
+            var y = document.getElementById("num2").value;
+            res = Number(x) % Number(y);
+            document.getElementById("answer").value = x + ' % ' + y + ' = ' + res;
+        }
+        //document.getElementById("answer").value = res;
+        console.log("here is the result of res:" + res);
+    </script>
+    <h3>Second Assignment - Percentage Calculator</h3>
+    <h4>Enter Marks of five Subjects/Courses and each course carries 100 marks</h4>
+    <input type="number" placeholder="cours-1" id="c1">
+    <input type="number" placeholder="cours-2" id="c2">
+    <input type="number" placeholder="cours-3" id="c3">
+    <input type="number" placeholder="cours-4" id="c4">
+    <input type="number" placeholder="cours-5" id="c5"><br>
+    <input type="button" value="Caculate %" onclick="percentage()"><br>
+    <input type="text" id="t-marks">
+    <input type="text" id="per">
+    <script>
+        function percentage() {
+            let c1 = document.getElementById('c1').value;
+            let c2 = document.getElementById('c2').value;
+            let c3 = document.getElementById('c3').value;
+            let c4 = document.getElementById('c4').value;
+            let c5 = document.getElementById('c5').value;
+            let oMarks = Number(c1) + Number(c2) + Number(c3) + Number(c4) + Number(c5);
+            let per = oMarks * 100 / 500;
+            document.getElementById('t-marks').value = 'Total Marks = ' + oMarks;
+            document.getElementById('per').value = 'Percentage = ' + per + "%";
+            console.log("per:" + oMarks);
+            console.log("per:" + per);
+        }
+    </script>
+    <h3>Chapter 15 - 20</h3>
+    <h5>Make a TODO</h5>
+    <p>Enter Courses Name: (5 Cources to Enter)<br>
+        <label for="text" id="label">Course 1</label>
+        <input type="text" id="course" placeholder="Enter Course Name Here.." required>
+        <input type="button" value="Next" onclick="next()">
+    </p>
+    <script>
+        var arr = [];
+        var i = 1;
+        function next() {
+            var c = document.getElementById('course').value;
+            if (c.length === 0) {
+                alert("Please input course!! ");
+            } else {
+                i++;
+                arr.push(c);
+                document.getElementById('course').value = '';
+                document.getElementById('label').innerHTML = 'Course ' + i;
+                console.log("length: " + arr.length);
+                if (arr.length === 5) {
+                    //alert("Your Courses are: "+arr);
+                    for (let index = 0; index < arr.length; index++) {
+                        console.log("Course " + index + " " + arr[index]);
+                        //alert("Course "+index +" "+ arr[index]);
+                    }
+                }
+            }
+
+        }
+    </script>
+
+</body>
+
+</html>
