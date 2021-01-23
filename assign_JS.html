@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment</title>
+</head>
+
+<body>
+    <h1>Chapter 21 - 30</h1>
+    <h2>Part 1</h2>
+    <p>
+        Input a value in a deciml digit form given in a text box
+        <input type="numer" placeholder="enter a decimal number" id="num">
+        <input type="button" value="Check Result" id="btn" onclick="oper()">
+        =
+        <label for="text" id="ans">0</label>
+    </p>
+    
+    <script>
+        function oper() {
+            var num = document.getElementById('num').value;
+            var res = Math.ceil(num);
+            document.getElementById('ans').innerHTML = res;
+        }
+
+    </script>
+    <p>
+        Enter some text in a given text box
+        <input type="text" name="" id="text" placeholder="Enter some text here:">
+        and now check the slice 
+        <input type="button" value="Slice Text" onclick="slice()"> =
+        <label for="text" id="slice"></label>
+        <input type="button" value="reverse" onclick="reverse()">
+        <label for="text" id="reverse"></label>
+    </p>
+    <script>
+        var text = "";
+        var result = "";
+        function slice() {
+            text = document.getElementById('text').value;
+            result = text.slice(-5,-1);
+            document.getElementById('slice').innerHTML = result;
+        }
+        function reverse() {
+            text = document.getElementById('text').value;
+            result = text.slice(0,4);
+            console.log(result.length);
+            for (let index = result.length -1; index >= 0; index--) {
+                document.getElementById('reverse').innerHTML += result[index];
+            }
+        }
+    </script>
+    <!--
+        <h2>Part 2</h2>
+    <p>
+        Enter some type of text in the form of sentance
+        <input type="text" id="text" placeholder="Enter text here...">
+        <input type="button" value="Convert" onclick="Convert()">
+        <label for="text" id="con"></label>
+    </p>
+
+   /* <script>
+        function Convert() {
+            var text = document.getElementById('text').value;
+            var con = text.toLowerCase();
+            console.log('her:'+con);
+            var splitStr = text.toLowerCase().split(' ');
+            console.log("sec: "+splitStr);
+        }
+    </script>-->
+    
+</body>
+
+</html>
